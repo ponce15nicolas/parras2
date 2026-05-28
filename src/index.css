@@ -1,0 +1,28 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: #d4af37;
+  }
+  .bg-gold {
+    background-color: #d4af37;
+  }
+  .border-gold {
+    border-color: #d4af37;
+  }
+}
