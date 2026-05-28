@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import PropertyCard from './Propertycard'
+import PropertyCard from './PropertyCard'
 
 export default function Catalog({ properties, onVerDetalle }) {
   return (
