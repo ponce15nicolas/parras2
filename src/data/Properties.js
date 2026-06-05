@@ -2,9 +2,8 @@ export const properties = [
   {
     id: 1,
     title: 'Terreno en venta',
-    image: '/terreno1.jpg', //IMAGEN DE PORTADA//
-    images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-//
-      '/terreno1.jpg', 
+    image: '/terreno2.jpeg', //IMAGEN DE PORTADA//
+    images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-// 
       '/terreno2.jpeg', 
       '/terreno3.jpeg' ,
       '/terreno4.jpeg' ,
