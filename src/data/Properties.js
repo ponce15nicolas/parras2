@@ -4,8 +4,7 @@ export const properties = [
     title: 'Terreno en venta',
     image: '/terreno1.jpg', //IMAGEN DE PORTADA//
     images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-//
-      '/terreno1.jpeg', 
-      '/terreno1-1.jpeg', 
+      '/terreno1.jpg', 
       '/terreno2.jpeg', 
       '/terreno3.jpeg' ,
       '/terreno4.jpeg' ,
@@ -68,7 +67,6 @@ export const properties = [
       '/torre1-1.jpeg', 
       '/torre2.jpeg', 
       '/torre3.jpeg' ,
-      '/torre4.jpeg',
       '/torre5.jpeg',
       '/torre6.jpeg',
       '/torre7.jpeg',
@@ -77,9 +75,9 @@ export const properties = [
       '/torre10.jpeg',
       '/torre11.jpeg',
       '/torre12.jpeg',
-      '/torre13.jpeg',
       '/torre14.jpeg',
       '/torre15.jpeg',
+      '/torre16.jpeg',
     ],
     dormitorios: 3,
     banos: 2,
