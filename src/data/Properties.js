@@ -126,6 +126,7 @@ export const properties = [
     barrio: 'Barrio Belgrano',
     barrioKey: 'belgrano',
     descripcion: 'Ubicado en el barrio Belgrano',
+    tipo: 'alquiler',
     pais: 'Argentina',
     region: 'Chaco',
     ciudad: 'Resistencia',
