@@ -21,7 +21,7 @@ export default function PropertyModal({ property, onClose }) {
   const handleSubmit = () => {
     if (!form.nombre || !form.email || !form.telefono) return
     const texto = `Hola! Me interesa la propiedad: *${property.title}* %0APrecio: $${formatted} %0ANombre: ${form.nombre} %0AEmail: ${form.email} %0ATel: ${form.telefono} %0AMensaje: ${form.mensaje}`
-    window.open(`https://wa.me/5493482440734?text=${texto}`, '_blank')
+    window.open(`https://wa.me/5493794655615?text=${texto}`, '_blank')
     setEnviado(true)
   }
 
