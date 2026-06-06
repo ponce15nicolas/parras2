@@ -20,10 +20,6 @@ export default function App() {
   const [showAdmin, setShowAdmin] = useState(false)
 
   const [properties, setProperties] = useState([])
-useEffect(() => {
-  const stored = localStorage.getItem('admin_properties')
-  setProperties(stored ? JSON.parse(stored) : allProperties)
-}, [])
 
   // Scroll al tope cuando se abre el detalle
   useEffect(() => {
