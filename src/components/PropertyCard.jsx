@@ -2,12 +2,11 @@ import { motion } from 'framer-motion'
 
 export default function PropertyCard({ property, index, onVerDetalle }) {
   // DESPUÉS
-const { title, image, dormitorios, banos, m2, precioARS, precioUSD, ubicacion, barrio, descripcion } = property
-const [moneda, setMoneda] = useState('ARS')
-const monedaActiva = moneda === 'USD' && precioUSD ? 'USD' : 'ARS'
-const precio = monedaActiva === 'ARS' ? precioARS : precioUSD
-const simbolo = monedaActiva === 'ARS' ? '$' : 'U$S'
-const locale = monedaActiva === 'ARS' ? 'es-AR' : 'en-US'
+const { title, image, dormitorios, banos, m2, precio, ubicacion, barrio, descripcion } = property
+
+const esAlquiler = property.tipo === 'alquiler'
+const simbolo = esAlquiler ? '$' : 'U$S'
+const locale = esAlquiler ? 'es-AR' : 'en-US'
 const formatted = new Intl.NumberFormat(locale).format(precio)
 
   return (
