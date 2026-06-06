@@ -19,7 +19,10 @@ export default function App() {
   const [showVender, setShowVender] = useState(false)
   const [showAdmin, setShowAdmin] = useState(false)
 
-  const [properties, setProperties] = useState([])
+  const [properties, setProperties] = useState(() => {
+    const stored = localStorage.getItem('admin_properties')
+    return stored ? JSON.parse(stored) : allProperties
+  })
 
   // Scroll al tope cuando se abre el detalle
   useEffect(() => {
@@ -71,9 +74,9 @@ export default function App() {
     }
 
     return result
-  }, [filters, tipoFilter])
+  }, [filters, tipoFilter, properties])
 
-  // Vista de detalle: página completa con navbar y footer
+  // Vista de detalle
   if (selectedProperty) {
     return (
       <>
@@ -81,7 +84,7 @@ export default function App() {
           onFilter={(tipo) => { setTipoFilter(tipo); setFilters(null) }} 
           onContact={() => setShowContact(true)}
           onNosotros={() => { setSelectedProperty(null); setTimeout(() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' }), 300) }}
-            />
+        />
         <div className="pt-[70px] min-h-screen bg-white">
           <PropertyModal
             property={selectedProperty}
@@ -109,15 +112,20 @@ export default function App() {
       <Nosotros/>
       <Footer />
       <WhatsAppButton />
+      {showAdmin && (
+        <AdminPanel
+          onClose={() => {
+            setShowAdmin(false)
+            const stored = localStorage.getItem('admin_properties')
+            if (stored) setProperties(JSON.parse(stored))
+          }}
+          baseProperties={allProperties}
+        />
+      )}
       {showContact && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-xl w-[90%] max-w-md relative">
-            <button
-              onClick={() => setShowContact(false)}
-              className="absolute top-2 right-3 text-xl"
-            >
-              ✕
-            </button>
+            <button onClick={() => setShowContact(false)} className="absolute top-2 right-3 text-xl">✕</button>
             <h2 className="text-xl font-bold mb-4">Contacto</h2>
             <form className="flex flex-col gap-3">
               <input type="text" placeholder="Nombre" className="border p-2 rounded" />
