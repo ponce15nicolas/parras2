@@ -24,6 +24,21 @@ export default function App() {
     }
   }, [selectedProperty])
 
+  // Historial para el botón atrás del navegador
+  useEffect(() => {
+    if (selectedProperty) {
+      window.history.pushState({ modal: true }, '')
+    }
+  }, [selectedProperty])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setSelectedProperty(null)
+    }
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
   const filtered = useMemo(() => {
     let result = [...allProperties]
 
@@ -81,8 +96,8 @@ export default function App() {
       <Navbar
         onFilter={(tipo) => { setTipoFilter(tipo); setFilters(null) }}
         onContact={() => setShowContact(true)}
-         onVender={() => setShowVender(true)}
-         onNosotros={() => setTimeout(() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' }), 100)}
+        onVender={() => setShowVender(true)}
+        onNosotros={() => setTimeout(() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' }), 100)}
       />
       {showVender && <ModalVender onClose={() => setShowVender(false)} />}
       <Banner onSearch={setFilters} />
@@ -91,48 +106,24 @@ export default function App() {
       <Footer />
       <WhatsAppButton />
       {showContact && (
-  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div className="bg-white p-6 rounded-xl w-[90%] max-w-md relative">
-
-      {/* BOTÓN CERRAR */}
-      <button
-        onClick={() => setShowContact(false)}
-        className="absolute top-2 right-3 text-xl"
-      >
-        ✕
-      </button>
-
-      {/* TÍTULO */}
-      <h2 className="text-xl font-bold mb-4">Contacto</h2>
-
-      {/* FORMULARIO */}
-      <form className="flex flex-col gap-3">
-        <input
-          type="text"
-          placeholder="Nombre"
-          className="border p-2 rounded"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          className="border p-2 rounded"
-        />
-        <textarea
-          placeholder="Mensaje"
-          className="border p-2 rounded"
-        ></textarea>
-
-        <button
-          type="submit"
-          className="bg-black text-white py-2 rounded"
-        >
-          Enviar
-        </button>
-      </form>
-
-    </div>
-  </div>
-)}
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-xl w-[90%] max-w-md relative">
+            <button
+              onClick={() => setShowContact(false)}
+              className="absolute top-2 right-3 text-xl"
+            >
+              ✕
+            </button>
+            <h2 className="text-xl font-bold mb-4">Contacto</h2>
+            <form className="flex flex-col gap-3">
+              <input type="text" placeholder="Nombre" className="border p-2 rounded" />
+              <input type="email" placeholder="Email" className="border p-2 rounded" />
+              <textarea placeholder="Mensaje" className="border p-2 rounded"></textarea>
+              <button type="submit" className="bg-black text-white py-2 rounded">Enviar</button>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   )
 }
