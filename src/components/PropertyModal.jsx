@@ -15,15 +15,18 @@ export default function PropertyModal({ property, onClose }) {
     ? [property.image]
     : []
 
-  const formatted = new Intl.NumberFormat('es-AR').format(property.precio)
+const esAlquiler = property.tipo === 'alquiler'
+const simbolo = esAlquiler ? '$' : 'U$S'
+const locale = esAlquiler ? 'es-AR' : 'en-US'
+const formatted = new Intl.NumberFormat(locale).format(property.precio)
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
   const handleSubmit = () => {
     if (!form.nombre || !form.email || !form.telefono) return
-    const texto = `Hola! Me interesa la propiedad: *${property.title}* %0APrecio: $${formatted} %0ANombre: ${form.nombre} %0AEmail: ${form.email} %0ATel: ${form.telefono} %0AMensaje: ${form.mensaje}`
+    const texto = `Hola! Me interesa la propiedad: *${property.title}* %0APrecio: ${simbolo} ${formatted} %0ANombre: ${form.nombre} %0AEmail: ${form.email} %0ATel: ${form.telefono} %0AMensaje: ${form.mensaje}`
     window.open(`https://wa.me/5493794655615?text=${texto}`, '_blank')
     setEnviado(true)
-  }
+   }
 
   return (
     <motion.div
@@ -105,7 +108,8 @@ export default function PropertyModal({ property, onClose }) {
                 {property.tipo}
               </span>
               <h1 className="font-heading font-bold text-2xl md:text-3xl text-gray-900 leading-snug">{property.title}</h1>
-              <p className="text-[#d4af37] font-heading font-bold text-4xl mt-2">${formatted}</p>
+              
+              <p className="text-[#d4af37] font-heading font-bold text-4xl mt-2">{simbolo} {formatted}</p>
               <div className="flex items-center gap-2 text-gray-400 text-sm mt-2">
                 <i className="fas fa-map-marker-alt text-[#d4af37]"></i>
                 <span>{property.ubicacion} · {property.barrio}</span>
