@@ -1,8 +1,14 @@
 import { motion } from 'framer-motion'
 
 export default function PropertyCard({ property, index, onVerDetalle }) {
-  const { title, image, dormitorios, banos, m2, precio, ubicacion, barrio, descripcion } = property
-  const formatted = new Intl.NumberFormat('es-AR').format(precio)
+  // DESPUÉS
+const { title, image, dormitorios, banos, m2, precioARS, precioUSD, ubicacion, barrio, descripcion } = property
+const [moneda, setMoneda] = useState('ARS')
+const monedaActiva = moneda === 'USD' && precioUSD ? 'USD' : 'ARS'
+const precio = monedaActiva === 'ARS' ? precioARS : precioUSD
+const simbolo = monedaActiva === 'ARS' ? '$' : 'U$S'
+const locale = monedaActiva === 'ARS' ? 'es-AR' : 'en-US'
+const formatted = new Intl.NumberFormat(locale).format(precio)
 
   return (
     <motion.div
@@ -43,7 +49,32 @@ export default function PropertyCard({ property, index, onVerDetalle }) {
                   Con garaje
               </p>
           )}
-        <p className="text-[#d4af37] font-heading font-bold text-xl">${formatted}</p>
+        // DESPUÉS
+<div className="flex items-center justify-between">
+  <p className="text-[#d4af37] font-heading font-bold text-xl">
+    {simbolo} {formatted}
+  </p>
+  {precioUSD && (
+    <div className="flex rounded-lg overflow-hidden border border-gray-200 text-[11px] font-semibold">
+      <button
+        onClick={() => setMoneda('ARS')}
+        className={`px-2 py-1 transition-colors duration-200 cursor-pointer border-0 ${
+          monedaActiva === 'ARS' ? 'bg-gray-900 text-white' : 'bg-white text-gray-500 hover:bg-gray-100'
+        }`}
+      >
+        ARS
+      </button>
+      <button
+        onClick={() => setMoneda('USD')}
+        className={`px-2 py-1 transition-colors duration-200 cursor-pointer border-0 ${
+          monedaActiva === 'USD' ? 'bg-gray-900 text-white' : 'bg-white text-gray-500 hover:bg-gray-100'
+        }`}
+      >
+        USD
+      </button>
+    </div>
+  )}
+</div>
         <div className="flex items-center gap-1 text-gray-400 text-xs">
           <i className="fas fa-map-marker-alt text-[#d4af37]"></i>
           <span>{ubicacion}</span>
