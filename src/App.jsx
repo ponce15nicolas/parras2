@@ -8,6 +8,7 @@ import WhatsAppButton from './components/Whatsappbutton'
 import PropertyModal from './components/PropertyModal'
 import ModalVender from './components/Modalvender'
 import { properties as allProperties } from './data/Properties'
+import AdminPanel from './components/AdminPanel'
 
 
 export default function App() {
@@ -16,6 +17,13 @@ export default function App() {
   const [selectedProperty, setSelectedProperty] = useState(null)
   const [showContact, setShowContact] = useState(false)
   const [showVender, setShowVender] = useState(false)
+  const [showAdmin, setShowAdmin] = useState(false)
+
+  const [properties, setProperties] = useState([])
+useEffect(() => {
+  const stored = localStorage.getItem('admin_properties')
+  setProperties(stored ? JSON.parse(stored) : allProperties)
+}, [])
 
   // Scroll al tope cuando se abre el detalle
   useEffect(() => {
@@ -40,7 +48,7 @@ export default function App() {
   }, [])
 
   const filtered = useMemo(() => {
-    let result = [...allProperties]
+    let result = [...properties]
 
     if (tipoFilter) {
       result = result.filter((p) => p.tipo === tipoFilter)
