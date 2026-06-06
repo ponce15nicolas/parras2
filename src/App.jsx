@@ -91,7 +91,7 @@ export default function App() {
             onClose={() => setSelectedProperty(null)}
           />
         </div>
-        <Footer />
+        <Footer onAdmin={() => setShowAdmin(true)} />
         <WhatsAppButton />
       </>
     )
@@ -110,7 +110,7 @@ export default function App() {
       <Banner onSearch={setFilters} />
       <Catalog properties={filtered} onVerDetalle={setSelectedProperty} />
       <Nosotros/>
-      <Footer />
+      <Footer onAdmin={() => setShowAdmin(true)} />
       <WhatsAppButton />
       {showAdmin && (
         <AdminPanel

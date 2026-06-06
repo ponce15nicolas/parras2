@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function Footer() {
+export default function Footer({ onAdmin }) {
   return (
     <footer className="bg-black border-t border-white/10">
       <motion.div
@@ -48,10 +48,13 @@ export default function Footer() {
         </div>
       </motion.div>
 
-      <div className="border-t border-white/5 px-6 py-4 text-center">
+      <div className="border-t border-white/5 px-6 py-4 text-center flex flex-col gap-1">
         <p className="text-white/20 text-xs">
           © {new Date().getFullYear()} Valentina Parras Inmobiliaria. Todos los derechos reservados | <a href="https://frannkode.vercel.app/">Desarollado por KodeFra</a>
         </p>
+        <button onClick={onAdmin} className="text-white/10 hover:text-white/30 text-[10px] bg-transparent border-0 cursor-pointer transition-colors">
+          admin
+        </button>
       </div>
     </footer>
   )
