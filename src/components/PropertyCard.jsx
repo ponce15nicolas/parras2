@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion'
 
 export default function PropertyCard({ property, index, onVerDetalle }) {
-  // DESPUÉS
-const { title, image, dormitorios, banos, m2, precio, ubicacion, barrio, descripcion } = property
+  const { title, image, dormitorios, banos, m2, precio, ubicacion, barrio, descripcion } = property
 
-const esAlquiler = property.tipo === 'alquiler'
-const simbolo = esAlquiler ? '$' : 'U$S'
-const locale = esAlquiler ? 'es-AR' : 'en-US'
-const formatted = new Intl.NumberFormat(locale).format(precio)
+  const esAlquiler = property.tipo === 'alquiler'
+  const simbolo = esAlquiler ? '$' : 'U$S'
+  const locale = esAlquiler ? 'es-AR' : 'en-US'
+  const formatted = new Intl.NumberFormat(locale).format(precio)
 
   return (
     <motion.div
@@ -33,47 +32,24 @@ const formatted = new Intl.NumberFormat(locale).format(precio)
         <h3 className="font-heading font-bold text-gray-900 text-base leading-snug">{title}</h3>
         {descripcion && <p className="text-gray-500 text-xs">{descripcion}</p>}
         <p className="text-gray-500 text-sm">
-            {dormitorios} dorm. · {banos} baño{banos > 1 ? 's' : ''} · {m2} m²
+          {dormitorios} dorm. · {banos} baño{banos > 1 ? 's' : ''} · {m2} m²
         </p>
 
-            {property.garaje && (
-              <p className="text-[#d4af37] text-sm flex items-center gap-1">
-                 <i className="fas fa-car"></i>
-                  Con garaje
-              </p>
-          )}
-          {property.moto && (
-              <p className="text-[#d4af37] text-sm flex items-center gap-1">
-                 <i className="fas fa-motorcycle"></i>
-                  Con garaje
-              </p>
-          )}
-        // DESPUÉS
-<div className="flex items-center justify-between">
-  <p className="text-[#d4af37] font-heading font-bold text-xl">
-    {simbolo} {formatted}
-  </p>
-  {precioUSD && (
-    <div className="flex rounded-lg overflow-hidden border border-gray-200 text-[11px] font-semibold">
-      <button
-        onClick={() => setMoneda('ARS')}
-        className={`px-2 py-1 transition-colors duration-200 cursor-pointer border-0 ${
-          monedaActiva === 'ARS' ? 'bg-gray-900 text-white' : 'bg-white text-gray-500 hover:bg-gray-100'
-        }`}
-      >
-        ARS
-      </button>
-      <button
-        onClick={() => setMoneda('USD')}
-        className={`px-2 py-1 transition-colors duration-200 cursor-pointer border-0 ${
-          monedaActiva === 'USD' ? 'bg-gray-900 text-white' : 'bg-white text-gray-500 hover:bg-gray-100'
-        }`}
-      >
-        USD
-      </button>
-    </div>
-  )}
-</div>
+        {property.garaje && (
+          <p className="text-[#d4af37] text-sm flex items-center gap-1">
+            <i className="fas fa-car"></i> Con garaje
+          </p>
+        )}
+        {property.moto && (
+          <p className="text-[#d4af37] text-sm flex items-center gap-1">
+            <i className="fas fa-motorcycle"></i> Con garaje
+          </p>
+        )}
+
+        <p className="text-[#d4af37] font-heading font-bold text-xl">
+          {simbolo} {formatted}
+        </p>
+
         <div className="flex items-center gap-1 text-gray-400 text-xs">
           <i className="fas fa-map-marker-alt text-[#d4af37]"></i>
           <span>{ubicacion}</span>
