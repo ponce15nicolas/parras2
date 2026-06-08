@@ -60,7 +60,7 @@ export const properties = [
 
   {
     id: 3,
-    title: 'Departamento en venta - Torre Sarmiento',
+    title: 'Departamento en venta - Torres Sarmiento',
     image: '/torre1.jpeg', //IMAGEN DE PORTADA//
     images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-//
       '/torre1-1.jpeg', 
@@ -87,7 +87,7 @@ export const properties = [
     ubicacionKey: 'resistencia',
     barrio: 'sarmiento',
     barrioKey: 'sarmiento',
-    descripcion: 'Torre Sarmiento - Departamento en venta - Juan Domingo Perón 1451',
+    descripcion: 'Torres Sarmiento - Departamento en venta - Juan Domingo Perón 1451',
     tipo: 'venta',
     pais: 'Argentina',
     region: 'Chaco',
