@@ -1,15 +1,15 @@
 export default function Nosotros() {
   const textos = [
-    "Somos una inmobiliaria comprometida con brindarte la mejor experiencia en la compra, venta y alquiler de propiedades. Nuestro trabajo se basa en la confianza, la transparencia y el trato personalizado, acompañándote en cada etapa del proceso con dedicación y profesionalismo.",
-    "Con años de experiencia en el mercado inmobiliario, ofrecemos un servicio cercano y profesional. Creemos que encontrar el hogar ideal es mucho más que una transacción: es un momento importante en tu vida, y estamos aquí para hacerlo más simple.",
-    "Nuestra misión es conectar personas con propiedades que se adapten a sus necesidades y posibilidades. Trabajamos con honestidad, compromiso y vocación de servicio para que cada operación sea una experiencia positiva y segura.",
+    "Corredora inmobiliaria comprometida con brindarte la mejor experiencia en la compra, venta y alquiler de propiedades. Mi trabajo se basa en la confianza, la transparencia y el trato personalizado, acompañándote en cada etapa del proceso con dedicación y profesionalismo.",
+    "Con años de experiencia en el mercado inmobiliario, ofrezco un servicio cercano y profesional. Creo que encontrar el hogar ideal es mucho más que una transacción: es un momento importante en tu vida, y estamos aquí para hacerlo más simple.",
+    "Mi misión es conectar personas con propiedades que se adapten a sus necesidades y posibilidades. Trabajo con honestidad, compromiso y vocación de servicio para que cada operación sea una experiencia positiva y segura.",
   ]
 
   const texto = textos[Math.floor(Math.random() * textos.length)]
 
   const agentes = [
     {
-      nombre: 'Valentina Azul Parras',
+      nombre: 'Azul Valentina Parras',
       rol: 'Corredora Inmobiliaria',
       mat: 'Mat. 0000',
       tel: '+54 9 3794 655615',
