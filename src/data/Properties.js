@@ -138,8 +138,7 @@ export const properties = [
     id: 5,
     title: 'Departamento en venta - Torres Sarmiento',
     image: '/torres2-1.jpeg', //IMAGEN DE PORTADA//
-    images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-//
-      '/torres2-1.jpeg', 
+    images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-// 
       '/torres2-2.jpeg', 
       '/torres2-3.jpeg' ,
       '/torres2-4.jpeg' ,
