@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "convert": "node convert.js"
+    "convert": "node convert.js",
+    "convert:watch": "chokidar \"public/**/*.{png,jpg,jpeg}\" -c \"npm run convert\""
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
@@ -21,6 +22,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.5.0",
+    "chokidar-cli": "^3.0.0",
     "eslint": "^10.3.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.2",
