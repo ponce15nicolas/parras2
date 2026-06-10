@@ -28,7 +28,7 @@ export default function Navbar({ onFilter, onVender, onNosotros }) {
       >
         <div className="flex items-center justify-between px-6 md:px-10 h-[70px]">
           <div className="flex items-center">
-            <img src="/logonavbar.png" alt="Logo" className="h-10 w-auto" />
+            <img src="/logonavbar.webp" alt="Logo" className="h-10 w-auto" />
           </div>
 
           <ul className="hidden md:flex items-center gap-5 list-none">
