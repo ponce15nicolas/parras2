@@ -22,7 +22,7 @@ export default function Banner({ onSearch }) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-between px-6 md:px-10 pt-[120px] pb-16 gap-10 md:gap-16 overflow-hidden flex-col md:flex-row">
-      <img src="/banner.png" alt="Banner" className="absolute inset-0 w-full h-full object-cover z-0" />
+      <img src="/banner.webp" alt="Banner" className="absolute inset-0 w-full h-full object-cover z-0" />
       <div className="absolute inset-0 z-[1]" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.85) 10%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.05) 75%)' }} />
 
       <div className="relative z-[2] text-white max-w-[600px] text-center md:text-left flex-1">

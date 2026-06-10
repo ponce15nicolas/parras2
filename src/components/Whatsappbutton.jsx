@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
-      <img src="/whatsapp.png" alt="WhatsApp" className="w-14 h-14 drop-shadow-xl" />
+      <img src="/whatsapp.webp" alt="WhatsApp" className="w-14 h-14 drop-shadow-xl" />
     </motion.a>
   )
 }

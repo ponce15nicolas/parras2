@@ -15,7 +15,7 @@ export default function Nosotros() {
       tel: '+54 9 3794 655615',
       telHref: 'tel:+5493794655615',
       email: 'azulparrastr@egmail.com',
-      foto: '/pefilparras.jpg',
+      foto: '/pefilparras.webp',
     },
     // Para agregar otro agente, copiá el objeto de arriba y pegalo acá
   ]

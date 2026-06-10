@@ -11,7 +11,7 @@ export default function Footer({ onAdmin }) {
         className="max-w-6xl mx-auto px-6 md:px-10 py-12 flex flex-col md:flex-row gap-10 justify-between flex-wrap"
       >
         <div className="flex flex-col items-start gap-3">
-          <img src="/logonavbar.png" alt="Logo" className="w-48 md:w-60 h-auto" />
+          <img src="/logonavbar.webp" alt="Logo" className="w-48 md:w-60 h-auto" />
           <p className="text-white/40 text-xs max-w-xs">
             Encontrá la propiedad ideal en Resistencia, Chaco y zona.
           </p>
