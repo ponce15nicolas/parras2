@@ -170,6 +170,35 @@ export const properties = [
     descripcionExtra: 'Departamento de 2 dormitorios en venta - Torres Sarmiento. Ubicado en Juan Domingo Perón 1451, este cómodo departamento ofrece una excelente combinación de amplitud, seguridad y espacios comunes ideales para disfrutar en familia. La propiedad cuenta con: 3 ambientes, 2 dormitorios, 1 baño, luminoso living-comedor, cocina integrada, balcón contrafrente, lavadero. Características del edificio: Las torres cuentan con un amplio espacio verde en planta baja, un sector común ideal para recreación, descanso y disfrute de quienes viven en el complejo. Seguridad 24/7: control de accesos y vigilancia permanente para brindarte total tranquilidad. Ascensor y escaleras, garantizando practicidad y tranquilidad para sus residentes. Una excelente oportunidad para vivir en una zona estratégica de la ciudad, con todas las comodidades ! U$D 65.000. Para más información, no dudes en contactarnos.',
     mapsQuery: 'Juan+Domingo+Perón+1451+Resistencia+Chaco+Argentina',
   },
+  {
+    id: 6,
+    title: 'Cochera en venta - Torres Sarmiento',
+    image: '/cochera1.webp', //IMAGEN DE PORTADA//
+    images: [ //IMAGENES DENTRO DEL MODAL A MODO GALERIA COMPLETA-// 
+      '/cochera1.webp', 
+      '/cochera2.webp' ,
+      '/cochera3.webp' ,  
+    ],
+    dormitorios: 0,
+    banos: 0,
+    m2: 0,
+    garaje: true,
+    moto: false,
+    precio: 11500,
+    ubicacion: 'Resistencia, Chaco',
+    ubicacionKey: 'resistencia',
+    barrio: 'Sarmiento',
+    barrioKey: 'sarmiento',
+    descripcion: 'Oportunidad de inversión en uno de los complejos más reconocidos.',
+    tipo: 'venta',
+    pais: 'Argentina',
+    region: 'Chaco',
+    ciudad: 'Resistencia',
+    areaConstruida: 'N/A m²',
+    areaTerreno: 'N/A',
+    descripcionExtra: 'COCHERA EN VENTA - TORRES SARMIENTO. Oportunidad de inversión en uno de los complejos residenciales más reconocidos de la ciudad. Se vende cochera cubierta en Torres Sarmiento, con excelente ubicación dentro del edificio y acceso mediante portón automático, brindando comodidad, practicidad y seguridad las 24 horas. Ideal para residentes que buscan resguardar su vehículo o para inversores que deseen obtener una renta mensual en una zona con alta demanda de estacionamiento. Características: cochera cubierta, ubicada en 2° piso, acceso por portón automático, amplios espacios de circulación y fácil maniobrabilidad, excelente ubicación dentro del complejo, entorno seguro y bien mantenido, ideal para uso propio o inversión. Precio de venta: U$D 11.500',
+    mapsQuery: 'Juan+Domingo+Perón+1451+Resistencia+Chaco+Argentina',
+  },
 ];
 
 
