@@ -1,7 +1,6 @@
-// convert-to-webp.js
-const sharp = require('sharp');
-const fs = require('fs');
-const path = require('path');
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
 
 fs.readdirSync('public').forEach(file => {
   if (/\.(png|jpe?g|jpg)$/i.test(file)) {

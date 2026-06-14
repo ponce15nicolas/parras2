@@ -1,11 +1,13 @@
-export default function Nosotros() {
-  const textos = [
-    "Corredora inmobiliaria comprometida con brindarte la mejor experiencia en la compra, venta y alquiler de propiedades. Mi trabajo se basa en la confianza, la transparencia y el trato personalizado, acompañándote en cada etapa del proceso con dedicación y profesionalismo.",
-    "Con años de experiencia en el mercado inmobiliario, ofrezco un servicio cercano y profesional. Creo que encontrar el hogar ideal es mucho más que una transacción: es un momento importante en tu vida, y estamos aquí para hacerlo más simple.",
-    "Mi misión es conectar personas con propiedades que se adapten a sus necesidades y posibilidades. Trabajo con honestidad, compromiso y vocación de servicio para que cada operación sea una experiencia positiva y segura.",
-  ]
+import { useState } from 'react';
 
-  const texto = textos[Math.floor(Math.random() * textos.length)]
+const textos = [
+  "Corredora inmobiliaria comprometida con brindarte la mejor experiencia en la compra, venta y alquiler de propiedades. Mi trabajo se basa en la confianza, la transparencia y el trato personalizado, acompañándote en cada etapa del proceso con dedicación y profesionalismo.",
+  "Con años de experiencia en el mercado inmobiliario, ofrezco un servicio cercano y profesional. Creo que encontrar el hogar ideal es mucho más que una transacción: es un momento importante en tu vida, y estamos aquí para hacerlo más simple.",
+  "Mi misión es conectar personas con propiedades que se adapten a sus necesidades y posibilidades. Trabajo con honestidad, compromiso y vocación de servicio para que cada operación sea una experiencia positiva y segura.",
+];
+
+export default function Nosotros() {
+  const [texto] = useState(() => textos[Math.floor(Math.random() * textos.length)]);
 
   const agentes = [
     {
@@ -14,7 +16,7 @@ export default function Nosotros() {
       mat: 'Mat. 0000',
       tel: '+54 9 3794 655615',
       telHref: 'tel:+5493794655615',
-      email: 'azulparrastr@egmail.com',
+      email: 'azulparrastr@gmail.com',
       foto: '/pefilparras.webp',
     },
     // Para agregar otro agente, copiá el objeto de arriba y pegalo acá

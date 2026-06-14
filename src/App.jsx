@@ -1,4 +1,5 @@
-import { useState, useMemo, useEffect } from 'react'
+import { Suspense, lazy, useEffect, useMemo, useState } from 'react'
+import { onSnapshot } from 'firebase/firestore'
 import Navbar from './components/Navbar'
 import Banner from './components/Banner'
 import Catalog from './components/Catalog'
@@ -8,7 +9,9 @@ import WhatsAppButton from './components/Whatsappbutton'
 import PropertyModal from './components/PropertyModal'
 import ModalVender from './components/Modalvender'
 import { properties as allProperties } from './data/Properties'
-import AdminPanel from './components/AdminPanel'
+import { propertiesDocRef } from './firebase'
+
+const AdminPanel = lazy(() => import('./components/AdminPanel'))
 
 
 export default function App() {
@@ -19,10 +22,29 @@ export default function App() {
   const [showVender, setShowVender] = useState(false)
   const [showAdmin, setShowAdmin] = useState(false)
 
-  const [properties, setProperties] = useState(() => {
-    const stored = localStorage.getItem('admin_properties')
-    return stored ? JSON.parse(stored) : allProperties
-  })
+  const [properties, setProperties] = useState(allProperties)
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      propertiesDocRef,
+      (snapshot) => {
+        const remoteProperties = snapshot.exists() ? snapshot.data()?.properties : null
+
+        if (Array.isArray(remoteProperties)) {
+          setProperties(remoteProperties)
+          return
+        }
+
+        setProperties(allProperties)
+      },
+      (error) => {
+        console.error('Firestore properties subscription error:', error)
+        setProperties(allProperties)
+      }
+    )
+
+    return () => unsubscribe()
+  }, [])
 
   // Scroll al tope cuando se abre el detalle
   useEffect(() => {
@@ -113,14 +135,23 @@ export default function App() {
       <Footer onAdmin={() => setShowAdmin(true)} />
       <WhatsAppButton />
       {showAdmin && (
-        <AdminPanel
-          onClose={() => {
-            setShowAdmin(false)
-            const stored = localStorage.getItem('admin_properties')
-            if (stored) setProperties(JSON.parse(stored))
-          }}
-          baseProperties={allProperties}
-        />
+        <Suspense
+          fallback={
+            <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+              <div className="bg-white rounded-2xl p-8 w-[90%] max-w-sm text-center shadow-2xl">
+                <div className="animate-spin h-8 w-8 border-2 border-t-[#d4af37] border-gray-200 rounded-full mx-auto mb-4" />
+                <p className="text-gray-700 text-sm font-semibold">Cargando panel de administración...</p>
+              </div>
+            </div>
+          }
+        >
+          <AdminPanel
+            onClose={() => {
+              setShowAdmin(false)
+            }}
+            baseProperties={allProperties}
+          />
+        </Suspense>
       )}
       {showContact && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
