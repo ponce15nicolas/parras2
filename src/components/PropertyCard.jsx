@@ -37,12 +37,9 @@ export default function PropertyCard({ property, index, onVerDetalle }) {
 
         {property.garaje && (
           <p className="text-[#d4af37] text-sm flex items-center gap-1">
-            <i className="fas fa-car"></i> Con garaje
-          </p>
-        )}
-        {property.moto && (
-          <p className="text-[#d4af37] text-sm flex items-center gap-1">
-            <i className="fas fa-motorcycle"></i> Con garaje
+            {property.garaje === 'moto' && <><i className="fas fa-motorcycle"></i> Garaje para moto</>}
+            {property.garaje === 'auto' && <><i className="fas fa-car"></i> Garaje para auto</>}
+            {property.garaje === 'auto y moto' && <><i className="fas fa-car"></i> Garaje para auto y moto</>}
           </p>
         )}
 
